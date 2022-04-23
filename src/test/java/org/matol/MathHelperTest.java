@@ -10,22 +10,43 @@ import org.junit.function.ThrowingRunnable;
  */
 public class MathHelperTest {
 
+    @SuppressWarnings("Convert2Lambda")
     @Test
     public void testPlusNegative() {
-        MathHelper testInstance = new MathHelper();
 
+        MathHelper testInstance = new MathHelper();
         Assert.assertThrows(NullPointerException.class, new ThrowingRunnable() {
             @Override
-            public void run() throws Throwable {
+            public void run() {
                 testInstance.plus(null, 10);
             }
         });
     }
 
     @Test
-    public void test() {
-        MathHelper testInstance = new MathHelper();
+    public void testPlus() {
 
+        MathHelper testInstance = new MathHelper();
         Assert.assertEquals(4, testInstance.plus(2, 2).intValue());
+    }
+
+    @SuppressWarnings("Convert2Lambda")
+    @Test
+    public void testMinusNegative() {
+
+        MathHelper testInstance = new MathHelper();
+        Assert.assertThrows(NullPointerException.class, new ThrowingRunnable() {
+            @Override
+            public void run() {
+                testInstance.minus(null, 10);
+            }
+        });
+    }
+
+    @Test
+    public void testMinus() {
+
+        MathHelper testInstance = new MathHelper();
+        Assert.assertEquals(0, testInstance.minus(2, 2).intValue());
     }
 }
